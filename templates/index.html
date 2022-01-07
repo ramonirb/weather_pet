@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+</head>
+<body>
+<p>Hi, enter city please</p>
+<form action="/" method="post">
+    {% csrf_token %}
+    <input type="text" name="city" {% if formData and formData.city %}value="{{ formData.city }}"{% endif %}>
+</form>
+
+
+{% if data %}
+Data received
+{% endif %}
+{% if error %}
+<p style="color: red">{{ error }}</p>
+{% endif %}
+</body>
+</html>
